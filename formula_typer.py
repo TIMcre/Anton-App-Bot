@@ -1,6 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+website = str(input("website url"))
 # inital setup
 driver = webdriver.Firefox(executable_path="geckodriver.exe")
-driver.get("https://www.realmath.de/Neues/Klasse8/binome/binomevar03.php")
+try:
+    driver.get(website)
+except:
+    print("invalid url")
