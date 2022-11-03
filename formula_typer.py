@@ -15,3 +15,15 @@ except:
     except:
         print("conection error")
 
+while True:
+    print(test)
+    try:
+        nbox1 = driver.find_element(By.CSS_SELECTOR,"/html/body/div[5]/div[4]/div/div[3]/div[1]")
+        nbox1.click
+        nbox2 = driver.find_element(By.CSS_SELECTOR,"/html/body/div[5]/div[4]/div/div[3]/div[2]")
+        nbox2.click
+        ibox = driver.find_element(By.CSS_SELECTOR,"/html/body/div[5]/div[4]/div/div[3]/div[1]")
+        ibox.click()
+        print("fslklf")
+    except:
+        pass
