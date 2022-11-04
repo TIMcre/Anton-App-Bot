@@ -22,7 +22,7 @@ class Console:
         print(f"[{self.time()}] [{label}] {text}")
 
     def inp(self, label: str, text: str):
-        psas
+        return input(f"[{self.time()}] [{label}] {text}")
 
 
     
@@ -44,7 +44,8 @@ def print_data(data):
     for item in data:
         console.write("output", item)
 
-console = Console()
-data = get_json(url)
-data = sort_json(data)
-print_data(data)
+if __name__ == '__main__':
+    console = Console()
+    data = get_json(url)
+    data = sort_json(data)
+    print_data(data)
