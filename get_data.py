@@ -13,38 +13,38 @@ class Console:
         pass
 
     def time(self):
-        return datetime.now().strftime("%H:%M:%S")
-        
+        return datetime.now().time().strftime("%H:%M:%S")
+
     def clear(self):
         os.system("cls")
 
     def write(self, label: str, text: str):
-        print(f"[{self.time}] [{label}] {text}")
+        print(f"[{self.time()}] [{label}] {text}")
+
+    def inp(self, label: str, text: str):
+        pass
+
 
     
 def get_json(url):
     try:
         data = requests.request("GET", url).json()
     except:
-        print("invalid url")
+        console.write("Error", "invalid url")
         return None
     return data
 
 def sort_json(data):
     question_list = []
-    question_list = nested_lookup("b", data)
-    question_list = re.sub("<.*?>|/d|\|+", "", str(question_list))
-    question_list.strip("][").split(', ')
+    question_list = nested_lookup("b", data)    
+    question_list = re.sub("<.*?>|/d|\|+|\'|\"", "", str(question_list)).strip("][").split(', ')
     return question_list
 
 def print_data(data):
     for item in data:
         console.write("output", item)
-        print(item,end="\n")
 
-
+console = Console()
 data = get_json(url)
 data = sort_json(data)
-console = Console()
-print(datetime.now().strftime("%H:%M:%S"))
-#print_data(data)
+print_data(data)
