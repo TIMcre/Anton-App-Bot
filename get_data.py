@@ -22,7 +22,7 @@ class Console:
         print(f"[{self.time()}] [{label}] {text}")
 
     def inp(self, label: str, text: str):
-        pass
+        psas
 
 
     
