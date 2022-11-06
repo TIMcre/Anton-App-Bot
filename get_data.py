@@ -4,9 +4,7 @@ from datetime import datetime
 from nested_lookup import nested_lookup
 import re
 
-url = "https://content.anton.app/files/?fileId=level%2Fc-mat-9%2Ftopic-01-wurzeln-und-potenzen%2Fblock-05-potenzgesetze%2Flevel-test&etag=5594-3691"
-
-#url = str(input("url"))
+url = ""
 
 class Console:
     def __init__(self):
@@ -35,10 +33,9 @@ def get_json(url):
     return data
 
 def sort_json(data):
-    question_list = []
-    question_list = nested_lookup("b", data)    
-    question_list = re.sub("<.*?>|/d|\|+|\'|\"", "", str(question_list)).strip("][").split(', ')
-    return question_list
+    qa_list = nested_lookup("b", data)   
+    qa_list = re.sub("<.*?>|/d|\|+|\'|\"", "", str(qa_list)).strip("][").split(", ")
+    return qa_list
 
 def print_data(data):
     for item in data:
@@ -46,6 +43,11 @@ def print_data(data):
 
 if __name__ == '__main__':
     console = Console()
+    try:
+        url = console.inp("Input", "Url: ")   
+    except:
+        console.write("Error", "invalid input")    
     data = get_json(url)
     data = sort_json(data)
     print_data(data)
+    
