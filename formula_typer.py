@@ -21,10 +21,4 @@ nbox1 = driver.find_element(By.CSS_SELECTOR,"/html/body/div[5]/div[4]/div/div[3]
 ibox = driver.find_element(By.CSS_SELECTOR,"/html/body/div[5]/div[4]/div/div[3]/div[1]")
 while True:
     print(test)
-    try:
-        
-        nbox1.click        
-        ibox.click()
-        print("fslklf")
-    except:
-        pass
+   
