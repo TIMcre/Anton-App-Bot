@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from nested_lookup import nested_lookup
 import re
+import time
 
 url = ""
 
@@ -41,12 +42,14 @@ def print_data(data):
     for item in data:
         console.write("output", item)
 
+
+
 if __name__ == '__main__':
     console = Console()
     try:
         url = console.inp("Input", "Url: ")   
     except:
-        console.write("Error", "invalid input")    
+        console.write("Error", "invalid input")       
     data = get_json(url)
     data = sort_json(data)
     print_data(data)
