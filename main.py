@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from get_data import Console
 import time
 
-username = "as2c-hcnm"
+username = open('username.txt').read()
 
 def login(username):
     try:

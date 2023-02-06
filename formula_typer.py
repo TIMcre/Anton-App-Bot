@@ -1,6 +1,7 @@
 from main import *
 
-
+initial_setup()
+time.sleep(2)
 while not login:
     pass
 while True:
@@ -10,7 +11,7 @@ while True:
         input_box_1.send_keys("test")
     except:
         pass
-
+    print("k")
 
     
    
