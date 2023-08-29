@@ -4,8 +4,7 @@ from selenium.webdriver.common.by import By
 from get_data import Console
 import time
 
-username = open('username.txt').read()
-# make cheack for no username txt
+
 def login(username):
     try:
         nbox1 = driver.find_element(By.CSS_SELECTOR ,"body > div.pageWrapper.onDomAppend > div.scrollDiv.pageScrollWrapper.allowBackSwipe.onStatusBarTap > div.scrollDivContainer.onWindowResize.onDomRemove.onDomAppend > div > div > div:nth-child(2) > div.page > div > div:nth-child(1) > div:nth-child(1) > div > div.onSubscribeLogsDone.onNewLogEvents_setAvatar.onNewLogEvents_setName > div > div:nth-child(1)")
@@ -47,6 +46,8 @@ def initial_setup():
 # fixurl defaulting to anton always
 
 if __name__ == '__main__':
+    username = open('username.txt').read()
+# make cheack for no username txt
     initial_setup()
     time.sleep(2)
     login(username)
